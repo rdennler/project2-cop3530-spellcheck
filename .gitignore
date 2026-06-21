@@ -1,0 +1,28 @@
+# Build output
+build/
+out/
+cmake-build-*/
+
+# CMake artifacts
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+CTestTestfile.cmake
+_deps/
+Testing/
+
+# Compiled objects and binaries
+*.o
+*.obj
+*.a
+*.so
+*.dylib
+*.exe
+spellcheck
+
+# Editor and OS noise
+.DS_Store
+.vscode/
+.idea/
+*.swp
+compile_commands.json

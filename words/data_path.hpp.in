@@ -1,0 +1,10 @@
+#ifndef SPELLCHECK_DATA_PATH_HPP
+#define SPELLCHECK_DATA_PATH_HPP
+
+namespace spellcheck::words {
+
+inline constexpr const char *kDefaultWordsFile = "@SPELLCHECK_WORDS_FILE@";
+
+} // namespace spellcheck::words
+
+#endif
