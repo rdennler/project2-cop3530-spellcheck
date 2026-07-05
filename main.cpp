@@ -1,10 +1,7 @@
 #include "ui.hpp"
-
 #include "dictionary.hpp"
 #include "trie.hpp"
 #include "tst.hpp"
-
-#include <chrono>
 #include <exception>
 #include <iostream>
 #include <string>
@@ -28,29 +25,13 @@ int main()
         return 1;
     }
 
-    auto trieBuildStart = chrono::high_resolution_clock::now();
-
-    for (const string& word : words)
+    for (const auto& word : words)
     {
         trie.insert(word);
-    }
-    auto trieBuildEnd = chrono::high_resolution_clock::now();
-    auto tstBuildStart = chrono::high_resolution_clock::now();
-
-    for (const string& word : words)
-    {
         tst.insert(word);
     }
 
-    auto tstBuildEnd = chrono::high_resolution_clock::now();
-
-    auto trieBuildTime = chrono::duration_cast<chrono::milliseconds>(tstBuildEnd - tstBuildStart).count();
-
-    auto tstBuildTime = chrono::duration_cast<chrono::milliseconds>(tstBuildEnd - tstBuildStart).count();
-
-    cout << "Loaded " << words.size() << " words.\n";
-
-    spellcheck::ui::TerminalUI ui(trie, tst, trieBuildTime, tstBuildTime);
+    spellcheck::ui::TerminalUI ui(trie, tst);
     ui.run();
 
     return 0;
